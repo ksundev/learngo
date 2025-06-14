@@ -34,6 +34,16 @@ func (a *Account) Withdraw(amount int) error {
 	return nil
 }
 
+// ChangeOnwer of the account
+func (a *Account) ChangeOwner(newOwner string) {
+	a.owner = newOwner
+}
+
+// GetOwner returns name of owner
+func (a Account) GetOwner() string {
+	return a.owner
+}
+
 func (a Account) String() string {
 	return fmt.Sprintf("Account owner: %s, Balance: %d", a.owner, a.balance)
 }
