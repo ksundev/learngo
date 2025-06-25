@@ -7,10 +7,20 @@ import (
 )
 
 func main() {
-	dictionary := mydict.Dictionary{}
-	dictionary["hello"] = "안녕"
-	dictionary["world"] = "세상"
-	dictionary["go"] = "고"
+	dictionary := mydict.Dictionary{"first": "First word"}
+	definition, err := dictionary.Search("first")
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(definition)
+	}
 
-	fmt.Println(dictionary["hello"])
+	word := "second"
+	def := "Second word"
+	err = dictionary.Add(word, def)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(word, "word added")
+	}
 }
